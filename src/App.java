@@ -1,4 +1,5 @@
 import javafx.application.Application;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -21,10 +23,10 @@ public class App extends Application {
 
   private static final String APP_FXML = "App.fxml";
 
-  Stage primaryStage;
-  MenuBar menuBar;
-  ImageView imageView;
-  Button generateButton;
+  private Stage primaryStage;
+  private MenuBar menuBar;
+  private ImageView imageView;
+  private Button generateButton;
 
 
   public static void main(String[] args) {
@@ -36,10 +38,10 @@ public class App extends Application {
     this.primaryStage = primaryStage;
     this.primaryStage.setTitle("City Street Generator");
     initLayout();
-    initComponenets();
+    initComponents();
   }
 
-  private void initComponenets() {
+  private void initComponents() {
     // Menu bar
     menuBar = (MenuBar) findNodeById("#menuBar");
     MenuItem openFileMenuItem = menuBar.getMenus().get(0).getItems().get(0);
@@ -48,9 +50,12 @@ public class App extends Application {
     openFileMenuItem.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent actionEvent) {
-        Image img = openImage();
-        showImage(img);
+        Image img = showFileChooser();
 
+        if (img != null) {
+          showImage(img);
+          processImg(img);
+        }
       }
     });
 
@@ -78,7 +83,14 @@ public class App extends Application {
     imageView.setImage(img);
   }
 
-  private Image openImage() {
+  private void processImg(Image img) {
+    BufferedImage inputImg = SwingFXUtils.fromFXImage(img, null);
+
+    // TODO Add a function call to generate the streets hereunder.
+
+  }
+
+  private Image showFileChooser() {
     FileChooser fileChooser = new FileChooser();
     FileChooser.ExtensionFilter jpgExtentionFilter = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.jpg");
     FileChooser.ExtensionFilter pngExtentionFilter = new FileChooser.ExtensionFilter("PGN file (*.png)", "*.png");
@@ -86,7 +98,7 @@ public class App extends Application {
     File chosenFile = fileChooser.showOpenDialog(getPrimaryStage());
 
     if (chosenFile != null) {
-      System.out.println(chosenFile.getPath());
+      System.out.println("[INFO] Opening file " + chosenFile.getPath());
       return new Image(new File(chosenFile.getPath()).toURI().toString());
     }
 
