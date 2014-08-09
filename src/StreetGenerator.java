@@ -19,6 +19,9 @@ public class StreetGenerator {
     return null;
   }
 
+  // TODO: troligtvis snyggare att göra alla produktionsregler till egna funktioner och
+  // ge dem listIterator som parameter
+
   private void step() {
     ListIterator<Module> it = modules.listIterator();
 
@@ -63,14 +66,13 @@ public class StreetGenerator {
           Module previous = it.previous();
           if (previous instanceof Query) {
             Query prevQuery = (Query) previous;
-            if (prevQuery.delay < 0) {
+            if (currentRoad.delay < 0) {
               System.out.println("P7");
               it.remove();
               continue;
             }
           }
         }
-        
 
 
       } else if (current instanceof Branch) {

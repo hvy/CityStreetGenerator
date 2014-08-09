@@ -1,6 +1,5 @@
 public class LocalConstraints {
 
-
   private void pruneSegment(Road r){
     // TODO: Takes a road segment and prunes its length
   }

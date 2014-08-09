@@ -1,3 +1,3 @@
-public class Module {
+public abstract class Module {
   
 }
