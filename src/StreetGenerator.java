@@ -59,6 +59,17 @@ public class StreetGenerator {
         }
 
         // P7
+        if (it.hasPrevious()) {
+          Module previous = it.previous();
+          if (previous instanceof Query) {
+            Query prevQuery = (Query) previous;
+            if (prevQuery.delay < 0) {
+              System.out.println("P7");
+              it.remove();
+              continue;
+            }
+          }
+        }
         
 
 
@@ -86,6 +97,16 @@ public class StreetGenerator {
 
       } else if (current instanceof Query) {
         Query currentQuery = (Query) current;
+
+        if (currentQuery.state == Query.UNASSIGNED) {
+          // TODO: run local constraints to set parameters and state
+
+          continue;
+        
+        } else {
+          it.remove();
+          continue;
+        }
 
       } else {
         // do nothing
