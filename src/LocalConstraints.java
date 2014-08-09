@@ -1,11 +1,11 @@
 public class LocalConstraints {
 
 
-  private pruneSegment(Road r){
+  private void pruneSegment(Road r){
     // TODO: Takes a road segment and prunes its length
   }
 
-  private rotateSegment(Road r){
+  private void rotateSegment(Road r){
     // TODO: Takes a road segment and rotates its angle
   }
 
