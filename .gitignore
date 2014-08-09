@@ -1,0 +1,45 @@
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# ======= #
+# Eclipse #
+# ======= #
+.classpath
+.project
+.settings/
+
+# ======== #
+# Intellij #
+# ======== #
+.idea/
+*.iml
+*.iws
+out/
+# ===== #
+# Maven #
+# ===== #
+log/
+target/
+
+# ============= #
+# java specific #
+# ============= #
+*.class
+
+# ======================= #
+# generic files to ignore
+# ======================= #
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
