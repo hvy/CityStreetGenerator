@@ -102,7 +102,7 @@ public class StreetGenerator {
           it.add(new Road());
           it.add(new Query());
           it.add(new Pop());
-          
+
           continue;
         }
 
@@ -115,18 +115,23 @@ public class StreetGenerator {
       } else if (current instanceof Query) {
         Query currentQuery = (Query) current;
 
+        
         if (currentQuery.state == Query.UNASSIGNED) {
-          // TODO: run local constraints to set parameters and state
+          // P8
+
+          // TODO: run local constraints to set parameters and state for this query module
 
           continue;
         
         } else {
+          // P9
           it.remove();
           continue;
         }
 
       } else {
         // do nothing
+        // this module does not have any production rules
       }
     }
 

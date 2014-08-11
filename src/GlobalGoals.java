@@ -11,4 +11,8 @@ public class GlobalGoals {
     // TODO: Takes a module (?) and checks its params with global goals.
     return false;
   }
+
+  public void p2(int del, RuleAttribute ruleAttr, RoadAttribute roadAttr, Branch b1, Branch b2, Road r) {
+    // TODO: based on the map, delay, rule and roadattr, set the parameters for the branches and the road
+  }
 }
