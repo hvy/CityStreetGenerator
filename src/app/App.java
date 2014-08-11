@@ -1,6 +1,6 @@
 package app;
 
-import model.City;
+import generator.model.City;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -51,7 +51,7 @@ public class App extends Application {
   @Override
   public void start(Stage primaryStage) throws Exception {
     this.primaryStage = primaryStage;
-    this.primaryStage.setTitle("model.City Street Generator");
+    this.primaryStage.setTitle("generator.model.City Street Generator");
 
     initLayout();
     initComponents();

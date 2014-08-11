@@ -6,7 +6,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import model.City;
+import generator.model.City;
 
 public class EditingCell extends TableCell<City, Integer> {
 

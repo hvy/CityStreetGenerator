@@ -1,4 +1,4 @@
-package utility;
+package generator.utility;
 
 public class ColorUtility {
 
