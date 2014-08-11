@@ -96,7 +96,13 @@ public class StreetGenerator {
 
         // P5
         if (currentBranch.delay == 0) {
-          // TODO: replace with road and query module
+          it.remove();
+          // TODO: calculate parameters and set them
+          it.add(new Push());
+          it.add(new Road());
+          it.add(new Query());
+          it.add(new Pop());
+          
           continue;
         }
 

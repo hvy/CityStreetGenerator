@@ -5,5 +5,7 @@ public class RoadAttribute {
 
   public double angle;
   public int length;
+  public int xpos;
+  public int ypos;
   public int type;
 }

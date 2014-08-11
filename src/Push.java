@@ -1,3 +1,3 @@
-public class Push {
+public class Push extends Module {
   
 }

@@ -1,3 +1,3 @@
-public class Pop {
+public class Pop extends Module {
   
 }
