@@ -50,6 +50,13 @@ public class StreetGenerator {
               // call global goals to set parameters in rule- and roadattr
               // remove the Road module and then
               // add angle, forward, branch, branch and road to modules list
+
+              // remove the Road module
+              it.previous();
+              it.remove();
+
+              // remove the Query module
+              it.next();
               it.remove();
               
               // temp, need to calculate the parameters first
@@ -64,6 +71,13 @@ public class StreetGenerator {
             
             } else if (nextQuery.state == Query.FAILED) {
               System.out.println("P3");
+
+              // remove the Road module
+              it.previous();
+              it.remove();
+
+              // remove the Query module
+              it.next();
               it.remove();
               continue;
             }
@@ -77,6 +91,12 @@ public class StreetGenerator {
             Query prevQuery = (Query) previous;
             if (currentRoad.delay < 0) {
               System.out.println("P7");
+              
+              // remove the Query module
+              it.remove();
+              it.next();
+
+              // remove the Road module
               it.remove();
               continue;
             }
