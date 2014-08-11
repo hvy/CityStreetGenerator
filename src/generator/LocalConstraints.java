@@ -1,6 +1,7 @@
 package generator;
 
 import generator.attribute.RoadAttribute;
+import generator.model.Road;
 
 public class LocalConstraints {
 

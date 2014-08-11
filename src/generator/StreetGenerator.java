@@ -2,6 +2,7 @@ package generator;
 
 import generator.GlobalGoals;
 import generator.LocalConstraints;
+import generator.model.*;
 
 import java.util.*;
 

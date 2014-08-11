@@ -2,6 +2,9 @@ package generator;
 
 import generator.attribute.RoadAttribute;
 import generator.attribute.RuleAttribute;
+import generator.model.Branch;
+import generator.model.Module;
+import generator.model.Road;
 
 public class GlobalGoals {
   public GlobalGoals(){
