@@ -1,3 +1,3 @@
 public class Forward extends Module {
-  public int delay;
+  public int length;
 }
