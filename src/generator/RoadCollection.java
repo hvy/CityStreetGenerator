@@ -1,3 +1,7 @@
+package generator;
+
+import generator.attribute.RoadAttribute;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 

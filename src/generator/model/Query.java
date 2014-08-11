@@ -1,6 +1,6 @@
 package generator.model;
 
-import generator.model.Module;
+import generator.attribute.RoadAttribute;
 
 public class Query extends Module {
   public static final int UNASSIGNED = 0;
@@ -8,8 +8,5 @@ public class Query extends Module {
   public static final int SUCCEED = 2;
 
   public int state;
-
-  public Query() {
-
-  }
+  public RoadAttribute roadAttribute;
 }

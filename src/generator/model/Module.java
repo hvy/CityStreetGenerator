@@ -1,5 +1,5 @@
 package generator.model;
 
-public class Module {
+public abstract class Module {
   
 }
