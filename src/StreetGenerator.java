@@ -22,7 +22,7 @@ public class StreetGenerator {
   // TODO: troligtvis snyggare att göra alla produktionsregler till egna funktioner och
   // ge dem listIterator som parameter
 
-  private void step() {
+  private LinkedList<Module> step(LinkedList<Module> modules) {
     ListIterator<Module> it = modules.listIterator();
 
     while (it.hasNext()) {
@@ -48,8 +48,17 @@ public class StreetGenerator {
 
               // TODO
               // call global goals to set parameters in rule- and roadattr
+              // remove the Road module and then
               // add angle, forward, branch, branch and road to modules list
-
+              it.remove();
+              
+              // temp, need to calculate the parameters first
+              // but its the right order
+              it.add(new Angle());
+              it.add(new Forward());
+              it.add(new Branch());
+              it.add(new Branch());
+              it.add(new Road());
 
               continue;
             
@@ -114,5 +123,7 @@ public class StreetGenerator {
         // do nothing
       }
     }
+
+    return modules;
   }
 }
