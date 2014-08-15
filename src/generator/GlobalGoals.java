@@ -6,9 +6,28 @@ import generator.model.Branch;
 import generator.model.Module;
 import generator.model.Road;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class GlobalGoals {
-  public GlobalGoals(){
-    // TODO: Initialise global goals from image?
+  private int mapWidth;
+  private int mapHeight;
+  private HashMap<Integer, ArrayList<PopulationArea>> illegalAreas;
+
+  public GlobalGoals(int width, int height, ArrayList<PopulationArea> points){
+    mapWidth = width;
+    mapHeight = height;
+    
+    for(PopulationArea p : points){
+      if(!illegalAreas.containsKey(p.xPos)){
+        ArrayList<PopulationArea> tmp = new ArrayList<PopulationArea>();
+        tmp.add(p);
+        illegalAreas.put(p.xPos, tmp);
+      }
+      else{
+        illegalAreas.get(p.xPos).add(p);
+      }
+    }
   }
 
   public void setModuleParams(Module m){
