@@ -3,11 +3,14 @@ package generator;
 import generator.GlobalGoals;
 import generator.LocalConstraints;
 import generator.model.*;
+import generator.utility.StreetUtility;
 
+import java.awt.image.BufferedImage;
 import java.util.*;
 
 public class StreetGenerator {
 
+  private BufferedImage img;
   private GlobalGoals globalGoals;
   private LocalConstraints localConstraints;
   private LinkedList<Module> modules;
@@ -16,7 +19,11 @@ public class StreetGenerator {
     System.out.println("hej");
   }
 
-  public StreetGenerator() {
+  public StreetGenerator(BufferedImage img, List<PopulationArea> populationAreas) {
+    this.img = img;
+    localConstraints = new LocalConstraints(img);
+    globalGoals = new GlobalGoals(img.getWidth(), img.getHeight());
+    globalGoals.setPopulationAreas(populationAreas);
     modules = new LinkedList<Module>();
   }
 
@@ -162,9 +169,5 @@ public class StreetGenerator {
     }
 
     return modules;
-  }
-
-  public void defineGlobalGoals(int width, int height, List<PopulationArea> populationAreas) {
-    globalGoals = new GlobalGoals(width, height, populationAreas);
   }
 }

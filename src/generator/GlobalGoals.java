@@ -9,28 +9,25 @@ import generator.model.Road;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GlobalGoals {
   private int mapWidth;
   private int mapHeight;
-  private HashMap<Integer, ArrayList<PopulationArea>> illegalAreas;
+  private List<PopulationArea> populationAreas;
 
-  public GlobalGoals(int width, int height, List<PopulationArea> points){
+  public GlobalGoals(int width, int height){
     mapWidth = width;
     mapHeight = height;
+    populationAreas = new ArrayList<>();
+  }
 
-    illegalAreas = new HashMap<>();
+  public void setPopulationAreas(List<PopulationArea> points) {
+    this.populationAreas = points;
+  }
 
-    for(PopulationArea p : points){
-      if(!illegalAreas.containsKey(p.xPos)){
-        ArrayList<PopulationArea> tmp = new ArrayList<PopulationArea>();
-        tmp.add(p);
-        illegalAreas.put(p.xPos, tmp);
-      }
-      else{
-        illegalAreas.get(p.xPos).add(p);
-      }
-    }
+  public List<PopulationArea> getPopulationAreas() {
+    return populationAreas;
   }
 
   public void setModuleParams(Module m){

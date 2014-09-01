@@ -206,7 +206,6 @@ public class App extends Application {
   }
 
   private void generateStreets() {
-    StreetGenerator streetGenerator = new StreetGenerator();
     List<PopulationArea> populationAreas = new ArrayList<PopulationArea>();
 
     for (int i = 0; i < cities.size(); i++) {
@@ -222,10 +221,11 @@ public class App extends Application {
     int width = bufferedImg.getWidth();
     int height = bufferedImg.getHeight();
 
-    streetGenerator.defineGlobalGoals(height, width, populationAreas);
-
     System.out.println("[INFO] Map\tWidth: " + width + "px\tHeight: " + height + "px.");
     System.out.println("[INFO] Generating streets...");
+
+    StreetGenerator streetGenerator = new StreetGenerator(bufferedImg, populationAreas);
+    streetGenerator.generate();
   }
 
   private void showImage(Image img) {

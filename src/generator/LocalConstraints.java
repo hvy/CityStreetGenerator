@@ -3,14 +3,22 @@ package generator;
 import generator.attribute.RoadAttribute;
 import generator.model.Road;
 
+import java.awt.image.BufferedImage;
+
 public class LocalConstraints {
 
-  public LocalConstraints() {
-    // TODO
+  private BufferedImage img;
+
+  public LocalConstraints(BufferedImage img) {
+    this.img = img;
   }
 
   public void processRoadSegment(RoadAttribute roadAttribute) {
     // TODO
+  }
+
+  public void setImg(BufferedImage img) {
+    this.img = img;
   }
 
   private void pruneSegment(Road r){
@@ -20,5 +28,4 @@ public class LocalConstraints {
   private void rotateSegment(Road r){
     // TODO: Takes a road segment and rotates its angle
   }
-
 }
