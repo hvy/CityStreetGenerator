@@ -22,8 +22,7 @@ public class StreetGenerator {
   public StreetGenerator(BufferedImage img, List<PopulationArea> populationAreas) {
     this.img = img;
     localConstraints = new LocalConstraints(img);
-    globalGoals = new GlobalGoals(img.getWidth(), img.getHeight());
-    globalGoals.setPopulationAreas(populationAreas);
+    globalGoals = new GlobalGoals(img.getWidth(), img.getHeight(), populationAreas);
     modules = new LinkedList<Module>();
   }
 

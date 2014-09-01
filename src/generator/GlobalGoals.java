@@ -16,18 +16,10 @@ public class GlobalGoals {
   private int mapHeight;
   private List<PopulationArea> populationAreas;
 
-  public GlobalGoals(int width, int height){
+  public GlobalGoals(int width, int height, List<PopulationArea> populationAreas){
     mapWidth = width;
     mapHeight = height;
-    populationAreas = new ArrayList<>();
-  }
-
-  public void setPopulationAreas(List<PopulationArea> points) {
-    this.populationAreas = points;
-  }
-
-  public List<PopulationArea> getPopulationAreas() {
-    return populationAreas;
+    this.populationAreas = populationAreas;
   }
 
   public void setModuleParams(Module m){
