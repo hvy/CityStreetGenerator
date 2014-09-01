@@ -163,4 +163,8 @@ public class StreetGenerator {
 
     return modules;
   }
+
+  public void defineGlobalGoals(int width, int height, List<PopulationArea> populationAreas) {
+    globalGoals = new GlobalGoals(width, height, populationAreas);
+  }
 }

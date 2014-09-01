@@ -8,16 +8,19 @@ import generator.model.Road;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class GlobalGoals {
   private int mapWidth;
   private int mapHeight;
   private HashMap<Integer, ArrayList<PopulationArea>> illegalAreas;
 
-  public GlobalGoals(int width, int height, ArrayList<PopulationArea> points){
+  public GlobalGoals(int width, int height, List<PopulationArea> points){
     mapWidth = width;
     mapHeight = height;
-    
+
+    illegalAreas = new HashMap<>();
+
     for(PopulationArea p : points){
       if(!illegalAreas.containsKey(p.xPos)){
         ArrayList<PopulationArea> tmp = new ArrayList<PopulationArea>();

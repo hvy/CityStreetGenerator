@@ -1,5 +1,7 @@
 package app;
 
+import generator.PopulationArea;
+import generator.StreetGenerator;
 import generator.model.City;
 
 import javafx.application.Application;
@@ -27,6 +29,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class App extends Application {
@@ -203,22 +206,26 @@ public class App extends Application {
   }
 
   private void generateStreets() {
-    // Console logging
-    Image img = imageView.getImage();
-    double width = img.getWidth();
-    double height = img.getHeight();
-
-    System.out.println("[INFO] Map\tWidth: " + width + "px\tHeight: " + height + "px.");
+    StreetGenerator streetGenerator = new StreetGenerator();
+    List<PopulationArea> populationAreas = new ArrayList<PopulationArea>();
 
     for (int i = 0; i < cities.size(); i++) {
       City city = cities.get(i);
+
+      PopulationArea pa = new PopulationArea(city.getX(), city.getY(), city.getSize());
+      populationAreas.add(pa);
+
       System.out.println("[INFO] City " + (i + 1) + "\tSize: " + city.getSize() + "\tX: " + city.getX() + "\tY: " + city.getY() + ".");
     }
 
+    BufferedImage bufferedImg = SwingFXUtils.fromFXImage(imgOriginal, null);
+    int width = bufferedImg.getWidth();
+    int height = bufferedImg.getHeight();
+
+    streetGenerator.defineGlobalGoals(height, width, populationAreas);
+
+    System.out.println("[INFO] Map\tWidth: " + width + "px\tHeight: " + height + "px.");
     System.out.println("[INFO] Generating streets...");
-
-    // TODO Instantiate necessary classes and generate the streets.
-
   }
 
   private void showImage(Image img) {
