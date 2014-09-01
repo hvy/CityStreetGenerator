@@ -1,4 +1,4 @@
-package generator;
+package generator.model;
 
 import generator.model.Module;
 
