@@ -13,8 +13,6 @@ public class LocalConstraints {
     this.img = img;
   }
 
-  public
-
   public void processRoadSegment(RoadAttribute roadAttribute) {
     // TODO
   }
